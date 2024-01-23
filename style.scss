@@ -1,0 +1,388 @@
+// Google Font imprt
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+// Assignment of colors
+$webpageColor: #121212 #EEECDA;
+
+// Mixin to justify content and align items using flex
+@mixin justifyAndAlign() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Mixin to allow the easy use of media query
+@mixin mediaQuery($minimum, $maximum) {
+    @media screen and (min-width: $minimum) and (max-width: $maximum) {
+        @content;
+    }
+}
+
+
+// General Body
+// This small area formats the body to have no extra margins or paddings, and it also sets the background color and sets display as flex
+* {
+    background-color: nth($webpageColor, 1);
+    color: nth($webpageColor, 2);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+
+// Texts
+// These selectors format the different texts used in HTML
+h1 {
+    @include justifyAndAlign();
+    font-family: 'Poppins', sans-serif;
+    font-size: 56px;
+    font-weight: 500;
+
+    // Media Queries are used to change the size of texts the smaller the screen size becomes
+    @include mediaQuery(412px, 768px) {
+        font-size: 48px;
+    }
+
+    @include mediaQuery(376px, 412px) {
+        font-size: 40px;
+    }
+
+    @include mediaQuery(321px, 376px) {
+        font-size: 36px;
+    }
+
+    @include mediaQuery(0px, 321px) {
+        font-size: 28px;
+    }
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    color: nth($webpageColor, 1);
+    background-color: nth($webpageColor, 2);
+
+    @include mediaQuery(412px, 768px) {
+        font-size: 40px;
+    }
+
+    @include mediaQuery(376px, 412px) {
+        font-size: 30px;
+    }
+
+    @include mediaQuery(0px, 376px) {
+        font-size: 25px;
+    }
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    text-align: center;
+    color: nth($webpageColor, 2);
+    background-color: nth($webpageColor, 1);
+
+    @include mediaQuery(412px, 768px) {
+        font-size: 40px;
+    }
+
+    @include mediaQuery(376px, 412px) {
+        font-size: 30px;
+    }
+
+    @include mediaQuery(0px, 376px) {
+        font-size: 25px;
+    }
+}
+
+.thinPlay {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 20px;
+
+    @include mediaQuery(412px, 768px) {
+        font-size: 18px;
+    }
+
+    @include mediaQuery(376px, 412px) {
+        font-size: 16px;
+    }
+
+    @include mediaQuery(0px, 376px) {
+        font-size: 14px;
+    }
+}
+
+.thiccPop {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+
+    @include mediaQuery(412px, 768px) {
+        font-size: 18px;
+    }
+
+    @include mediaQuery(376px, 412px) {
+        font-size: 16px;
+    }
+
+    @include mediaQuery(0px, 376px) {
+        font-size: 14px;
+    }
+}
+
+.separator {
+    text-align: center;
+    line-height: 60px;
+    font-size: 30px;
+
+    @include mediaQuery(412px, 768px) {
+        font-size: 26px;
+    }
+
+    @include mediaQuery(376px, 412px) {
+        font-size: 24px;
+    }
+
+    @include mediaQuery(0px, 376px) {
+        font-size: 20px;
+    }
+}
+
+.footerPlay {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 14px;
+
+    @include mediaQuery(376px, 768px) {
+        font-size: 10px;
+    }
+
+    @include mediaQuery(321px, 376px) {
+        font-size: 8px;
+    }
+
+    @include mediaQuery(0px, 321px) {
+        font-size: 6px;
+    }
+}
+
+.footerPop {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+
+    @include mediaQuery(376px, 768px) {
+        font-size: 10px;
+    }
+
+    @include mediaQuery(321px, 376px) {
+        font-size: 8px;
+    }
+
+    @include mediaQuery(0px, 321px) {
+        font-size: 6px;
+    }
+}
+
+.itemText {
+    @include justifyAndAlign();
+    text-align: center;
+}
+
+.section1 p, .section2 p, .section3 p {
+    flex-grow: 1;
+    height: 60px;
+}
+
+
+// Vectors
+// These group of selectors format the .svg files used
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.cart {
+    color: nth($webpageColor, 2);
+    font-size: 35px;
+}
+
+.arrow {
+    color: nth($webpageColor, 2);
+    font-size: 15px;
+}
+
+.social {
+    color: nth($webpageColor, 2);
+    font-size: 15px;
+}
+
+
+// Sections
+// This large area format different tags and classes that have to do with sectioning
+nav {
+    @include justifyAndAlign();
+    justify-content: space-between;
+    padding: 20px;
+    padding-bottom: 10px;
+    height: 5vh;
+}
+
+article {
+    @include justifyAndAlign();
+    flex-direction: column;
+    gap: 25px;
+    height: 90vh;
+}
+
+.hotItems {
+    @include justifyAndAlign();
+    background-color: nth($webpageColor, 1);
+    width: 100vw;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 45px;
+    padding: 0 10px;
+
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+.itembox {
+    @include justifyAndAlign();
+    flex-direction: column;
+    gap: 15px;
+
+    img {
+        width: 300px;
+        height: 450px;
+        border-radius: 10px;
+
+        // Media Queries are used here to change the size of the images to compensate for smaller screens
+        @include mediaQuery(412px, 768px) {
+            width: 250px;
+            height: 400px;
+        }
+    
+        @include mediaQuery(376px, 412px) {
+            width: 200px;
+            height: 350px;
+        }
+    
+        @include mediaQuery(321px, 376px) {
+            width: 150px;
+            height: 200px;
+        }
+    
+        @include mediaQuery(0px, 321px) {
+            width: 100px;
+            height: 150px;
+        }
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    gap: 30px;
+}
+
+.clothes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item {
+    @include justifyAndAlign();
+    flex-direction: column;
+    text-align: center;
+    box-sizing: border-box;
+    width: 20%;
+
+    // Media Queries are also used here to change image size, but with percentage not pixels (for a more dynamic sizing)
+    @include mediaQuery(412px, 768px) {
+            width: 50%;
+        }
+    
+    @include mediaQuery(0px, 412px) {
+        width: 100%;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.addToCart {
+    width: 70%;
+    padding: 5px 0px;
+    border: nth($webpageColor, 2) solid 1px;
+    border-radius: 50px;
+    font-size: 15px;
+
+    &:hover {
+        color: nth($webpageColor, 1);
+        background-color: nth($webpageColor, 2);
+    }
+    
+}
+
+.comingSoon {
+    @include justifyAndAlign();
+    flex-direction: column;
+    height: 100vh;
+    background-color: nth($webpageColor, 2);
+}
+
+.comingContent {
+    background-color: nth($webpageColor, 1)
+}
+
+footer {
+    @include justifyAndAlign();
+    justify-content: space-between;
+    width: 100vw;
+    height: 5vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.backToTop {
+    @include justifyAndAlign();
+    margin-left: 10px;
+    gap: 10px;
+}
+
+.services {
+    @include justifyAndAlign();
+}
+
+.socials {
+    @include justifyAndAlign();
+    margin-right: 10px;
+    gap: 10px;
+}
